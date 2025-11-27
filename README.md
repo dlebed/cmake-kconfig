@@ -31,6 +31,19 @@ save a .config file in the build directory.
 The test_defconfig can be updated by copying the build/.config file to
 configs/test_defconfig and committing.
 
+Generating a random configuration:
+
+```bash
+ninja -C build randconfig
+```
+
+The `randconfig` target can be used to generate a random configuration. This is useful for testing.
+The `KCONFIG_SEED` environment variable can be used to seed the random number generator.
+
+```bash
+KCONFIG_SEED=1234 ninja -C build randconfig
+```
+
 Before any targets are built an autoconf.h header file is generated in `${AUTOCONF_DIR}`:
 
 ```
