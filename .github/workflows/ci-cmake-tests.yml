@@ -46,3 +46,13 @@ jobs:
         working-directory: ${{github.workspace}}/build
         shell: bash
         run: ./test1
+
+      - name: Randconfig
+        working-directory: ${{github.workspace}}
+        shell: bash
+        run: cmake --build build --target randconfig
+
+      - name: Build with randconfig
+        working-directory: ${{github.workspace}}
+        shell: bash
+        run: cmake --build build
